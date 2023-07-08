@@ -17,25 +17,12 @@ body {
   --text-faint: #ddd;
 
   /* Font families */
-  --font-text-theme: 'IBM Plex Mono',
-    'SF Mono',
-    ui-monospace,
-    monospace;
-  --font-editor-theme: 'IBM Plex Mono',
-    'SF Mono',
-    ui-monospace,
-    monospace;
-  --font-monospace-theme: 'IBM Plex Mono',
-    'SF Mono',
-    ui-monospace,
-    monospace;
-  --font-interface-theme: 'IBM Plex Mono',
-    'SF Mono',
-    ui-monospace,
-    monospace;
-  --font-editor: var(--font-editor-override),
-    var(--font-text-override),
-    var(--font-editor-theme);
+  --monospace-all-the-things: 'IBM Plex Mono', 'SF Mono', ui-monospace, monospace;
+  --font-text-theme: var(--monospace-all-the-things);
+  --font-editor-theme: var(--monospace-all-the-things);
+  --font-monospace-theme: var(--monospace-all-the-things);
+  --font-interface-theme: var(--monospace-all-the-things);
+  --font-editor: var(--font-editor-override), var(--font-text-override), var(--font-editor-theme);
 
   /* Font sizes */
   --h1-size: 2rem;
@@ -131,10 +118,6 @@ forgive me for the horrors you'll see in this CSS from this point.
   display: block;
 }
 */
-.markdown-source-view.mod-cm6 .cm-content>* {
-  /* margin-top: 1em !important; */
-  /* display: block; */
-}
 
 /* Titles are correctly spaced in Reading Mode, but not in Editing Mode.
 This hack fixes that */
