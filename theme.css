@@ -95,6 +95,10 @@ body {
 
   /* List Spacing */
   --list-spacing: calc(var(--line-height-normal) / 3);
+
+  .HyperMD-list-line.cm-line+.cm-line:not(.HyperMD-list-line) {
+    padding-top: var(--line-height-one);
+  }
 }
 
 /* Hacks */
