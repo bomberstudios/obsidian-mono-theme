@@ -43,6 +43,7 @@ body {
   /* Code */
   /* Code scroll, please. This doesn't seem to work, though... */
   --code-white-space: nowrap;
+  /* Code should have the same font size as the rest of the text, please */
   --code-size: var(--font-text-size);
   --code-background: var(--background-primary-alt);
 
@@ -77,12 +78,12 @@ body {
   Obsidian does not break lines into paragraphs unless there's an empty line
   between them. There is a setting in 'Editor', 'Strict line breaks' that
   controls this behavior, but only for the reading view */
-  /* --p-spacing-empty: var(--line-height-normal); */
   --p-spacing-empty: var(--line-height-one);
 
   /* List Spacing */
   --list-spacing: calc(var(--line-height-normal) / 3);
 
+  /* List Spacing: space under list */
   .HyperMD-list-line.cm-line+.cm-line:not(.HyperMD-list-line) {
     padding-top: var(--line-height-one);
   }
