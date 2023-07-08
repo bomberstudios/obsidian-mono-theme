@@ -2,6 +2,8 @@
 
 A **very** opinionated monospaced theme for Obsidian.
 
+![Screenshot](img/screenshot.png)
+
 You won't like it unless you agree with these statements:
 
 - I love orange
