@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+body {
+  /* Colors */
+  /* The best color in the world, in my humble opinion */
+  --orange: #ff6600;
+  --orange-dark: #dd4400;
+
+  --grey-light: #ccc;
+  --grey-dark: #999;
+  --text-accent: var(--orange);
+  --text-accent-hover: var(--orange-dark);
+  --background-primary-alt: #f9f9f9;
+  --blockquote-color: #666;
+  /* Frontmatter, icon outline color, UI elements */
+  --text-muted: var(--grey-dark);
+  --text-faint: #ddd;
+
+  /* Font families */
+  --font-text-theme: 'IBM Plex Mono',
+    'SF Mono',
+    ui-monospace,
+    monospace;
+  --font-editor-theme: 'IBM Plex Mono',
+    'SF Mono',
+    ui-monospace,
+    monospace;
+  --font-monospace-theme: 'IBM Plex Mono',
+    'SF Mono',
+    ui-monospace,
+    monospace;
+  --font-interface-theme: 'IBM Plex Mono',
+    'SF Mono',
+    ui-monospace,
+    monospace;
+  --font-editor: var(--font-editor-override),
+    var(--font-text-override),
+    var(--font-editor-theme);
+
+  /* Font sizes */
+  --h1-size: 2rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.3rem;
+  --h4-size: 1.1rem;
+  --h5-size: 1rem;
+  --h6-size: 0.9rem;
+
+  /* Headings */
+  --h1-color: var(--orange);
+  --h2-color: var(--orange);
+  --h3-color: var(--orange);
+  --h4-color: var(--orange);
+  --h5-color: var(--orange);
+  --h6-color: var(--orange);
+
+  /* Code */
+  /* Code scroll, please. This doesn't seem to work, though... */
+  --code-white-space: nowrap;
+  --code-size: var(--font-text-size);
+  --code-background: var(--background-primary-alt);
+
+  /* Spacing */
+  --line-height-huge: 5rem;
+  --line-height-normal: 1.5rem;
+  --line-height-tight: 1.2rem;
+  --line-height-one: 1rem;
+
+  /* Heading spacing: doesn't do anything on Editing Mode */
+  --heading-spacing: var(--line-height-normal);
+
+  /* This is set on app.css, but it doesn't affect Editing Mode because the code
+  the editor generates is not semantic (i.e: a header is a <div class="HyperMD-header-1">,
+  rather than a <h1>.
+  In any case, setting spacing using `margin` breaks cursor movement in Editing Mode,
+  for reasons I don't really understand because Obsidian is not open source.
+  .markdown-rendered div:has(> :is(p, pre, table, ul, ol))+div> :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: var(--heading-spacing);
+  }
+  */
+
+  /* Does not work in Editing Mode... */
+  --p-spacing: var(--line-height-one);
+
+  /* ...because Obsidian sets it to 0 in app.css. This undoes that: */
+  .markdown-source-view:not(.is-live-preview) {
+    --p-spacing: var(--line-height-one);
+  }
+
+  /* This is the spacing above a new paragraph after a heading, apparently.
+  Obsidian does not break lines into paragraphs unless there's an empty line
+  between them. There is a setting in 'Editor', 'Strict line breaks' that
+  controls this behavior, but only for the reading view */
+  /* --p-spacing-empty: var(--line-height-normal); */
+  --p-spacing-empty: var(--line-height-one);
+
+  /* List Spacing */
+  --list-spacing: calc(var(--line-height-normal) / 3);
+}
+
+/* Hacks */
+/*
+Disclaimer: Obsidian's CSS variables don't do much for the
+Editing Mode. So I need to resort to ugly hacks like !important,
+or overly specific selectors. Apologies in advance, and please
+forgive me for the horrors you'll see in this CSS from this point.
+*/
+
+/* Add some space between editor lines */
+.cm-line {
+  padding-bottom: var(--line-height-tight) !important;
+}
+
+/* But not for list items */
+.cm-line.HyperMD-list-line {
+  padding-bottom: var(--list-spacing) !important;
+}
+
+/* Add room above headings */
+.HyperMD-header.cm-line {
+  /* padding-top: 1.2em !important; */
+  padding-bottom: var(--line-height-one) !important;
+}
+
+/* Obsidian has this reset for editing mode, which drives me crazy:
+.markdown-source-view.mod-cm6 .cm-content>* {
+  margin: 0 !important;
+  display: block;
+}
+*/
+.markdown-source-view.mod-cm6 .cm-content>* {
+  /* margin-top: 1em !important; */
+  /* display: block; */
+}
+
+/* Titles are correctly spaced in Reading Mode, but not in Editing Mode.
+This hack fixes that */
+.markdown-source-view:not(.is-live-preview) .HyperMD-header {
+  /* This should be `margin-top`, but spacing stuff using margins
+  breaks cursor movement in Editing Mode for some reason... */
+  /* padding-top: var(--heading-spacing) !important; */
+}
+
+/* Frontmatter */
+.cm-hmd-frontmatter {
+  font-size: var(--font-text-size);
+}
+
+.cm-hmd-frontmatter.cm-hmd-frontmatter.cm-def {
+  color: var(--text-muted);
+}
+
+/* Frontmatter: Don't space lines vertically */
+.cm-line:has(.cm-hmd-frontmatter) {
+  padding-bottom: 0 !important;
+}
+
+.cm-line:has(.cm-fold-indicator+.cm-widgetBuffer+.cm-hmd-frontmatter) {
+  padding-bottom: 0 !important;
+}
+
+
+/* Frontmatte Block: Bottom Spacing */
+.cm-line:has(.cm-def) {
+  padding-bottom: var(--line-height-normal) !important;
+}
+
+
+/* Caret */
+.cm-content {
+  caret-color: var(--orange) !important;
+}
+
+/* Code */
+/* Margin above code block */
+.HyperMD-codeblock.HyperMD-codeblock-begin.HyperMD-codeblock-begin-bg.HyperMD-codeblock-bg.cm-line {
+  margin-top: var(--line-height-one) !important;
+}
+
+/* Margin below code block */
+.HyperMD-codeblock.HyperMD-codeblock-end.HyperMD-codeblock-end-bg.HyperMD-codeblock-bg.cm-line {
+  margin-bottom: var(--line-height-one) !important;
+}
+
+/* Code Block: Fences (```) */
+.cm-formatting-code-block {
+  color: var(--grey-light)
+}
+
+/* Code Blocks: Begin */
+.HyperMD-codeblock.HyperMD-codeblock-begin.HyperMD-codeblock-begin-bg.HyperMD-codeblock-bg {
+  border-radius: var(--radius-m) 0;
+  padding-top: 0.8em;
+}
+
+/* Code Block: Line */
+.HyperMD-codeblock.HyperMD-codeblock-bg.cm-line {
+  padding-bottom: 0.1em !important;
+}
+
+/* Code Blocks: End */
+.HyperMD-codeblock.HyperMD-codeblock-end.HyperMD-codeblock-end-bg.HyperMD-codeblock-bg {
+  border-radius: 0 var(--radius-m);
+}
