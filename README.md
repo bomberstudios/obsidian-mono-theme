@@ -8,10 +8,10 @@ You won't like it unless you agree with these statements:
 
 - I love orange
 - I don't use dark themes
-- I like taking notes using a monospaced font
+- I like taking notes using a monospaced font (in particular, [IBM Plex Mono](https://github.com/IBM/plex/releases/latest))
 - I never use "Reading Mode"
 
-And even if you do, you probably don't agree with the rest of my aesthetic choices, so proceed at your own discretion.
+And even if you do, you probably won't agree with the rest of my aesthetic choices, so proceed at your own discretion.
 
 ## Challenges
 
@@ -19,6 +19,9 @@ Most of Obsidian's CSS variables asume people who want to tweak a theme will use
 
 ## Missing
 
-- [ ] Move colors and spacing to use CSS variables
 - [ ] Embed fonts (see <https://docs.obsidian.md/Themes/App+themes/Embed+fonts+and+images+in+your+theme>)
-- [ ] Publish theme (probably won't happen any time soon)
+- [ ] Publish theme (probably won't happen until I can test it properly on mobile, dark theme, and Editing Mode)
+
+## Done
+
+- [x] Move colors and spacing to use CSS variables

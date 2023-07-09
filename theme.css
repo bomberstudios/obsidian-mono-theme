@@ -172,16 +172,16 @@ forgive me for the horrors you'll see in this CSS from this point.
 
 /* Code Blocks: Begin */
 .HyperMD-codeblock.HyperMD-codeblock-begin.HyperMD-codeblock-begin-bg.HyperMD-codeblock-bg {
-  border-radius: var(--radius-m) 0;
-  padding-top: 0.8em;
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
+  padding-top: calc(var(--line-height-one)/2) !important;
 }
 
 /* Code Block: Line */
 .HyperMD-codeblock.HyperMD-codeblock-bg.cm-line {
-  padding-bottom: 0.1em !important;
+  padding-bottom: calc(var(--line-height-one) / 10) !important;
 }
 
 /* Code Blocks: End */
 .HyperMD-codeblock.HyperMD-codeblock-end.HyperMD-codeblock-end-bg.HyperMD-codeblock-bg {
-  border-radius: 0 var(--radius-m);
+  border-radius: 0 0 var(--radius-m) var(--radius-m);
 }
