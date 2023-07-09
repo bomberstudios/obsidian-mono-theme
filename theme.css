@@ -54,17 +54,24 @@ body {
   --line-height-one: 1rem;
 
   /* Heading spacing: doesn't do anything on Editing Mode */
-  --heading-spacing: var(--line-height-normal);
+  --heading-spacing: var(--line-height-one);
 
   /* This is set on app.css, but it doesn't affect Editing Mode because the code
   the editor generates is not semantic (i.e: a header is a <div class="HyperMD-header-1">,
   rather than a <h1>.
-  In any case, setting spacing using `margin` breaks cursor movement in Editing Mode,
-  for reasons I don't really understand because Obsidian is not open source.
   .markdown-rendered div:has(> :is(p, pre, table, ul, ol))+div> :is(h1, h2, h3, h4, h5, h6) {
     margin-top: var(--heading-spacing);
   }
+  This is a fix for that. I hate it, but it works:
   */
+  .markdown-source-view:not(.is-live-preview) .HyperMD-header {
+    /* This should be `margin-top`, but spacing stuff using margins
+    breaks vertical cursor movement in Editing Mode for some reason... */
+    margin-top: var(--heading-spacing) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
 
   /* Does not work in Editing Mode... */
   --p-spacing: var(--line-height-one);
@@ -107,26 +114,15 @@ forgive me for the horrors you'll see in this CSS from this point.
   padding-bottom: var(--list-spacing) !important;
 }
 
-/* Add room above headings */
-.HyperMD-header.cm-line {
-  /* padding-top: 1.2em !important; */
-  padding-bottom: var(--line-height-one) !important;
-}
-
-/* Obsidian has this reset for editing mode, which drives me crazy:
+/*
+  Obsidian has this reset for editing mode, which drives me crazy.
+  I have no idea how to undo this, other than deleting that line
+  from the bundled app.css in Developer Mode 🤔
 .markdown-source-view.mod-cm6 .cm-content>* {
   margin: 0 !important;
   display: block;
 }
 */
-
-/* Titles are correctly spaced in Reading Mode, but not in Editing Mode.
-This hack fixes that */
-.markdown-source-view:not(.is-live-preview) .HyperMD-header {
-  /* This should be `margin-top`, but spacing stuff using margins
-  breaks cursor movement in Editing Mode for some reason... */
-  /* padding-top: var(--heading-spacing) !important; */
-}
 
 /* Frontmatter */
 .cm-hmd-frontmatter {
@@ -147,7 +143,7 @@ This hack fixes that */
 }
 
 
-/* Frontmatte Block: Bottom Spacing */
+/* Frontmatter Block: Bottom Spacing */
 .cm-line:has(.cm-def) {
   padding-bottom: var(--line-height-normal) !important;
 }
