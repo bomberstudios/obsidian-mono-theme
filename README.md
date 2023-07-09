@@ -8,7 +8,7 @@ You won't like it unless you agree with these statements:
 
 - I love orange
 - I don't use dark themes
-- I like taking notes using a monospace fonts
+- I like taking notes using a monospaced font
 - I never use "Reading Mode"
 
 And even if you do, you probably don't agree with the rest of my aesthetic choices, so proceed at your own discretion.
