@@ -1,7 +1,7 @@
 {
   "name": "Mono",
   "version": "0.0.2",
-  "minAppVersion": "1.0.0",
-  "author": "@bomberstudios",
-  "authorUrl": "https://twitter.com/bomberstudios"
+  "minAppVersion": "1.3.6",
+  "author": "bomberstudios",
+  "authorUrl": "https://ale.today"
 }
