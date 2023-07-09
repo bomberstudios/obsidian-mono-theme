@@ -54,7 +54,7 @@ body {
   --line-height-one: 1rem;
 
   /* Heading spacing: doesn't do anything on Editing Mode */
-  --heading-spacing: 1.2em;
+  --heading-spacing: 1em;
 
   /* This is set on app.css, but it doesn't affect Editing Mode because the code
   the editor generates is not semantic (i.e: a header is a <div class="HyperMD-header-1">,
