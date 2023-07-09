@@ -2,7 +2,7 @@
 
 A **very** opinionated monospaced theme for Obsidian.
 
-![Screenshot](img/screenshot.png)
+![Screenshot](img/mono-theme.png)
 
 You won't like it unless you agree with these statements:
 
