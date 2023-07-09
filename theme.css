@@ -54,7 +54,7 @@ body {
   --line-height-one: 1rem;
 
   /* Heading spacing: doesn't do anything on Editing Mode */
-  --heading-spacing: var(--line-height-one);
+  --heading-spacing: 1.2em;
 
   /* This is set on app.css, but it doesn't affect Editing Mode because the code
   the editor generates is not semantic (i.e: a header is a <div class="HyperMD-header-1">,
@@ -67,8 +67,8 @@ body {
   .markdown-source-view:not(.is-live-preview) .HyperMD-header {
     /* This should be `margin-top`, but spacing stuff using margins
     breaks vertical cursor movement in Editing Mode for some reason... */
-    margin-top: var(--heading-spacing) !important;
-    padding-top: 0 !important;
+    /* margin-top: var(--heading-spacing) !important; */
+    padding-top: var(--heading-spacing) !important;
     padding-bottom: 0 !important;
   }
 
