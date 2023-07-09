@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+tag=`jq -r .version manifest.json`
+echo Releasing version $tag
+git tag -a $tag -m "$tag"
+git push origin $tag
+gh release create "$tag" --title="Release $tag" --generate-notes --draft manifest.json theme.css
+gh repo view --web
