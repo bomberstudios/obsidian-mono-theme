@@ -15,13 +15,6 @@ And even if you do, you probably won't agree with the rest of my aesthetic choic
 
 ## Challenges
 
-Most of Obsidian's CSS variables asume people who want to tweak a theme will use the app in Reading Mode. Things like paragraph or heading spacing have absolutely no effect when in Editing Mode. That's why there are more convoluted CSS selector and hacks in my theme than I'm happy with.
+Most of Obsidian's CSS variables asume people who want to tweak a theme will use the app in Reading Mode. Things like paragraph or heading spacing have absolutely no effect when in Editing Mode.
 
-## Missing
-
-- [ ] Embed fonts (see <https://docs.obsidian.md/Themes/App+themes/Embed+fonts+and+images+in+your+theme>)
-- [ ] Publish theme (probably won't happen until I can test it properly on mobile, dark theme, and Editing Mode)
-
-## Done
-
-- [x] Move colors and spacing to use CSS variables
+That's why there are more convoluted CSS selector and hacks in my theme than I'm happy with.
